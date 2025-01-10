@@ -5,7 +5,7 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 
 // Direct MongoDB connection string
-const MONGO_URL = "mongodb://127.0.0.1:27017/Study_Space";
+const MONGO_URL = "mongodb://127.0.0.1:27017/Prodigy";
 
 mongoose
   .connect(MONGO_URL, {
@@ -80,7 +80,7 @@ app.post("/login", async (req, res) => {
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (isPasswordValid) {
-      res.status(200).render("listings/index.ejs");
+      res.status(200).render("listings/index.ejs", { username: user.name });
     } else {
       res.status(400).send("Wrong Password");
     }
@@ -89,7 +89,8 @@ app.post("/login", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-app.listen(3000, () => {
-  console.log("Server is listening on port 3000");
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+  console.log(`http://localhost:${PORT}/login`)
 });

@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Home Page Style */
+  .home-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: white;
+  }
+  
+  /* Background Styling */
+  .background {
+    background: linear-gradient(to right, #6a11cb, #2575fc); /* Beautiful gradient */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Welcome message */
+  .welcome-message {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .welcome-message h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .welcome-message p {
+    font-size: 20px;
+  }
+  
+  /* Add some responsive design */
+  @media (max-width: 768px) {
+    .welcome-message h1 {
+      font-size: 36px;
+    }
+    
+    .welcome-message p {
+      font-size: 16px;
+    }
+  }
+  
