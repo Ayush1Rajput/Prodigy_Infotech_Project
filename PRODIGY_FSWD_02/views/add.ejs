@@ -1,0 +1,12 @@
+<%- include('layout') %>
+<div class="container">
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="position" placeholder="Position" required>
+        <input type="text" name="department" placeholder="Department" required>
+        <input type="text" name="salary" placeholder="Salary" required>
+        <button type="submit">Add Employee</button>
+    </form>
+    <a href="/">Back to Employee List</a>
+</div>

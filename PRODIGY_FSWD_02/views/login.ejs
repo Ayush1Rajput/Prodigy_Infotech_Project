@@ -1,0 +1,9 @@
+<%- include('layout') %>
+<div class="Auth">
+    <form action="/login" method="POST">
+        <input type="text" name="email" placeholder="Email ID" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <a href="/register">Don't have an account? Register here</a>
+</div>
