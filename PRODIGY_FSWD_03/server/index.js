@@ -6,6 +6,14 @@ import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import helmet from 'helmet'
 import connectDB from './config/connectDB.js'
+// import userRouter from './route/user.route.js'
+// import categoryRouter from './route/category.route.js'
+// import uploadRouter from './route/upload.router.js'
+// import subCategoryRouter from './route/subCategory.route.js'
+// import productRouter from './route/product.route.js'
+// import cartRouter from './route/cart.route.js'
+// import addressRouter from './route/address.route.js'
+// import orderRouter from './route/order.route.js'
 
 const app = express()
 app.use(cors({
