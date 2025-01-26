@@ -1,0 +1,96 @@
+.slideshow-container {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  overflow: hidden; /* Important: Hide overflowing 
+  content */
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.mySlides {
+  display: none;
+  padding: 0;
+  margin: auto;
+  height: 100%;
+  background-size: cover;
+  /* background-position: center center; */
+}
+
+.slide1 {
+  background-image: url("../Assets/slider-1.jpg");
+}
+
+.slide2 {
+  background-image: url("../Assets/slider_2.jpg");
+}
+
+/* Fading effect */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+.cont-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: start;
+  flex-wrap: wrap;
+}
+
+.txt {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 20%;
+  /* flex-wrap: wrap; */
+}
+
+.txt button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+.txt3 {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 15%;
+}
+.txt3 button {
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 5px;
+  margin-top: 8px;
+  opacity: 0.6;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.active {
+  display: block;
+}
+
+button a {
+  text-decoration: none;
+  color: white;
+}
+
+.txt button:hover {
+  opacity: 1;
+}
+
+.txt3 button:hover {
+  opacity: 1;
+}

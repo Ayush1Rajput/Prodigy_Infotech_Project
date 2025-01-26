@@ -1,9 +1,7 @@
-
-.hero-content {
+.hero {
   height: 100vh;
   background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
   display: flex;
-  /* flex-direction: row; */
 }
 .hero-left {
   flex-direction: column;
@@ -15,13 +13,13 @@
 }
 .hero-left h2 {
   color: #090909;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 600;
   padding-top: 20px;
 }
 .hero-left p {
   color: #171717;
-  font-size: 100px;
+  font-size: 70px;
   font-weight: 700;
 }
 .hand-hand-icon {
