@@ -1,38 +1,49 @@
-<%- include('layout') %>
-<div class="container">
-    <h2>Employee List</h2>
-    
-    <form action="/search" method="GET">
-        <input type="text" name="search" placeholder="Search employees...">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="layout.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('layout') %>
+    <div class="container">
+      <h2>Employee List</h2>
+
+      <form action="/search" method="GET">
+        <input type="text" name="search" placeholder="Search employees..." />
         <button type="submit">Search</button>
-    </form>
-    
-    <table>
+      </form>
+
+      <table>
         <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Position</th>
-                <th>Department</th>
-                <th>Salary</th>
-                <th>Actions</th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
         </thead>
         <tbody>
-            <% employees.forEach(employee => { %>
-                <tr>
-                    <td><%= employee.name %></td>
-                    <td><%= employee.email %></td>
-                    <td><%= employee.position %></td>
-                    <td><%= employee.department %></td>
-                    <td><%= employee.salary %></td>
-                    <td>
-                        <a href="/edit/<%= employee._id %>">Edit</a>
-                        <a href="/delete/<%= employee._id %>">Delete</a>
-                    </td>
-                </tr>
-            <% }) %>
+          <% employees.forEach(employee => { %>
+          <tr>
+            <td><%= employee.name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.position %></td>
+            <td><%= employee.department %></td>
+            <td><%= employee.salary %></td>
+            <td>
+              <a href="/edit/<%= employee._id %>">Edit</a>
+              <a href="/delete/<%= employee._id %>">Delete</a>
+            </td>
+          </tr>
+          <% }) %>
         </tbody>
-    </table>
-    <a href="/add">Add Employee</a>
-</div>
+      </table>
+      <a href="/add">Add Employee</a>
+    </div>
+  </body>
+</html>

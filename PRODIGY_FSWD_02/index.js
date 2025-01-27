@@ -11,12 +11,12 @@ require('./config/passport')(passport);
 
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/employeeDB', {
+mongoose.connect('mongodb://127.0.0.1:27017/employeeDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.log(err));
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log(err));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(session({
@@ -33,7 +33,7 @@ app.set('view engine', 'ejs');
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
-    res.locals.user = req.user; 
+    res.locals.user = req.user;
     next();
 });
 

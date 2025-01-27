@@ -1,9 +1,29 @@
-<%- include('layout') %>
-<div class="Auth">
-    <form action="/login" method="POST">
-        <input type="text" name="email" placeholder="Email ID" required>
-        <input type="password" name="password" placeholder="Password" required>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('layout') %>
+    <div class="Auth">
+      <div class="img"></div>
+      <form action="/login" method="POST">
+        <h1>Login Pages</h1>
+        <div class="input-box">
+          <input type="text" name="email" placeholder="Email ID" required />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+        </div>
         <button type="submit">Login</button>
-    </form>
-    <a href="/register">Don't have an account? Register here</a>
-</div>
+        <a href="/register">Don't have an account? Register here</a>
+      </form>
+    </div>
+  </body>
+</html>
