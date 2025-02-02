@@ -5,6 +5,7 @@
 }
 
 .navbar {
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,5 +16,19 @@
 }
 
 .nav-logo {
-  width: 200px;
+  width: 150px;
+}
+.nav-profile {
+  width: 60px;
+}
+@media (max-widht: 800px) {
+  .navbar {
+    padding: 15px 30px;
+  }
+  .nav-logo {
+    width: 120px;
+  }
+  .nav-profile {
+    width: 50px;
+  }
 }
