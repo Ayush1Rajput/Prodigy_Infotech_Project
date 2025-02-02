@@ -110,7 +110,7 @@ app.post('/addproduct', async (req, res) => {
 app.post('/removeproduct', async (req, res) => {
     await Product.findOneAndDelete({ id: req.body.id })
     console.log("removed");
-    req.json({
+    res.json({
         success: true,
         name: req.body.name,
     })
@@ -180,7 +180,7 @@ app.post('/signup', async (req, res) => {
 
 // Creating endpoint for user login 
 
-app.post('login', async (req, res) => {
+app.post('/login', async (req, res) => {
     let user = await Users.findOne({ email: req.body.email });
     if (user) {
         const passCompare = req.body.password === user.password;
@@ -202,6 +202,64 @@ app.post('login', async (req, res) => {
     }
 })
 
+// Creating endpoint for newcollection data 
+
+app.get('/newcollections', async (req, res) => {
+    let products = await Product.find({});
+    let newcollection = products.slice(1).slice(-8);
+    console.log("New Collection Fetched")
+    res.send(newcollection)
+})
+
+// Creating endpoint popular in women section
+
+app.get('/popularinwomen', async (req, res) => {
+    let products = await Product.find({ category: "women" });
+    let popular_in_women = products.slice(0, 4);
+    console.log("Popular in women is Fetched");
+    res.send(popular_in_women)
+
+})
+
+// Creating middelware to fetch user
+
+const fetchUser = async (req, res, next) => {
+    const token = req.header('auth-token')
+    if (!token) {
+        res.status(401).send({ errors: "Please authenticate using vaild token" })
+    } else {
+        try {
+            const data = jwt.verify(token, 'secret_ecom')
+            req.user = data.user;
+            next();
+        } catch (error) {
+            res.status(401).send({ errors: "Please authenticate usinga valid token " })
+        }
+    }
+}
+
+// Creating endpoint for adding product in cart
+
+app.post('/addtocart', fetchUser, async (req, res) => {
+    // console.log(req.body, req.user);
+
+    let userData = await Users.findOne({ _id: req.user.id });
+    userData.cartData[req.body.itemId] += 1;
+    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+    res.send("Added ")
+})
+
+// Remove product from cart 
+
+app.post('/removefromcart', fetchUser, async (req, res) => {
+    let userData = await Users.findOne({ _id: req.user.id });
+    if (userData.cartData[req.body.itemId] > 0) {
+
+        userData.cartData[req.body.itemId] -= 1;
+    }
+    await Users.findOneAndUpdate({ _id: req.user.id }, { cartData: userData.cartData });
+    res.send("Removed ")
+})
 
 const PORT = 4000;
 app.listen(PORT, () => {
